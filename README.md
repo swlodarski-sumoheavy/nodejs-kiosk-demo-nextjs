@@ -18,7 +18,7 @@ uses an embedded sqlite database to make it easy to start. Feel free to use othe
 ## Prerequisites
 
 - BitPay Account
-- Node.js >= 18
+- Node.js >= 20
 
 ## Configuration
 

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "next lint",
+    "lint": "eslint .",
     "migrate": "npx prisma migrate deploy",
     "start": "next start",
     "test": "jest",
@@ -14,20 +14,24 @@
   "dependencies": {
     "@headlessui/react": "2.2.9",
     "@heroicons/react": "2.2.0",
-    "@prisma/client": "6.15.0",
+    "@libsql/client": "0.17.2",
+    "@prisma/adapter-libsql": "7.5.0",
+    "@prisma/client": "7.5.0",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/postcss": "4.2.2",
-    "bitpay-sdk": "6.3.1",
+    "bitpay-sdk": "8.0.1",
     "dayjs": "1.11.20",
     "next": "16.2.1",
     "react": "19.2.4",
     "react-csv": "2.2.2",
     "react-dom": "19.2.4",
     "sharp": "0.34.5",
-    "uuid": "13.0.0",
+    "uuid": "10.0.0",
     "winston": "3.19.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "3.3.5",
+    "@eslint/js": "9.39.4",
     "@modyfi/vite-plugin-yaml": "1.1.1",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
@@ -38,7 +42,7 @@
     "@types/react-csv": "1.1.10",
     "@types/react-dom": "19.2.3",
     "@types/uuid": "10.0.0",
-    "@vitejs/plugin-react": "4.5.0",
+    "@vitejs/plugin-react": "5.2.0",
     "autoprefixer": "10.4.27",
     "eslint": "9.35.0",
     "eslint-config-next": "16.2.1",
@@ -46,21 +50,26 @@
     "jest": "30.3.0",
     "jest-environment-jsdom": "30.3.0",
     "jest-transform-yaml": "1.2.0",
-    "jsdom": "26.1.0",
+    "jsdom": "29.0.1",
     "node-mocks-http": "1.17.2",
     "postcss": "8.5.8",
-    "prisma": "6.15.0",
+    "prisma": "7.5.0",
     "tailwindcss": "4.2.2",
     "ts-node": "10.9.2",
     "typescript": "5.9.2",
-    "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.2.4",
+    "vitest": "4.1.1",
     "vitest-mock-extended": "3.1.0",
     "whatwg-fetch": "3.6.20",
     "yaml-loader": "0.9.0"
   },
   "overrides": {
     "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3"
+    "@types/react-dom": "19.2.3",
+    "prisma@7.5.0": {
+      "hono": "4.12.8",
+      "@hono/node-server": "1.19.11",
+      "@mrleebo/prisma-ast": "0.15.0",
+      "effect": "3.20.0"
+    }
   }
 }

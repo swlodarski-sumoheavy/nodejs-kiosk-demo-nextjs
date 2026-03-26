@@ -4,8 +4,9 @@ import LedgerReportTableToolbar from '@/components/LedgerReportTableToolbar';
 import PageHeader from '@/components/PageHeader';
 import { bitpayClient } from '@/lib/bitpay';
 import { Currency } from 'bitpay-sdk';
-import { redirect } from 'next/navigation';
+import { LedgerEntryInterface } from 'bitpay-sdk/models';
 import dayjs from 'dayjs';
+import { redirect } from 'next/navigation';
 
 export default async function LedgerReport(props: {
   searchParams: Promise<{
@@ -32,51 +33,41 @@ export default async function LedgerReport(props: {
     );
   }
 
+  let ledgerReport: LedgerEntryInterface[] = [];
+  let error: unknown = null;
+
   try {
-    const ledgerReport = await bitpayClient.getLedgerEntries(
+    ledgerReport = await bitpayClient.getLedgerEntries(
       currency,
       new Date(startDate),
       new Date(endDate)
     );
+  } catch (e: unknown) {
+    error = e;
+  }
 
-    return (
-      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="px-4 py-8 sm:px-0">
-          <PageHeader title="Ledger Report" />
-          <div className="px-6 lg:px-8 mt-10">
-            <div className="mt-8 flow-root">
-              <LedgerReportTableToolbar
-                startDate={startDate}
-                endDate={endDate}
-                currency={currency}
-                data={ledgerReport}
-              />
-              <LedgerReportTable ledgerReport={ledgerReport} />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  } catch (error: unknown) {
-    return (
-      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="px-4 py-8 sm:px-0">
-          <PageHeader title="Ledger Report" />
-          <div className="px-6 lg:px-8 mt-10">
-            <LedgerReportTableToolbar
-              startDate={startDate}
-              endDate={endDate}
-              currency={currency}
-              data={[]}
-            />
-            <div className="mt-8 flow-root">
+  return (
+    <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="px-4 py-8 sm:px-0">
+        <PageHeader title="Ledger Report" />
+        <div className="px-6 lg:px-8 mt-10">
+          <LedgerReportTableToolbar
+            startDate={startDate}
+            endDate={endDate}
+            currency={currency}
+            data={error ? [] : ledgerReport}
+          />
+          <div className="mt-8 flow-root">
+            {error ? (
               <Error>
                 <pre>{JSON.stringify(error, null, 2)}</pre>
               </Error>
-            </div>
+            ) : (
+              <LedgerReportTable ledgerReport={ledgerReport} />
+            )}
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

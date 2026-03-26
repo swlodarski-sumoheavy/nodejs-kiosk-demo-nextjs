@@ -1,4 +1,4 @@
-import { Environment } from 'bitpay-sdk/dist/Environment';
+import { Environment } from 'bitpay-sdk';
 import applicationData from '../../application.yaml';
 
 export interface IConfig {

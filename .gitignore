@@ -40,4 +40,5 @@ application.yaml
 /prisma/*.db
 /prisma/*.db-journal
 BitPay.config.json
+dev.db
 

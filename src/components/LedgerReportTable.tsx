@@ -1,7 +1,6 @@
 'use client';
 
-import { LedgerEntryInterface } from 'bitpay-sdk/dist/Model';
-import { BuyerFields } from 'bitpay-sdk/dist/Model/Ledger/BuyerFields';
+import { BuyerFields, LedgerEntryInterface } from 'bitpay-sdk/models';
 import { useEffect, useState } from 'react';
 
 export default function LedgerReportTable({

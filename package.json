@@ -7,6 +7,7 @@
     "dev": "next dev",
     "lint": "eslint .",
     "migrate": "npx prisma migrate deploy",
+    "postinstall": "prisma generate",
     "start": "next start",
     "test": "jest",
     "test:functional": "vitest"
@@ -69,7 +70,19 @@
       "hono": "4.12.8",
       "@hono/node-server": "1.19.11",
       "@mrleebo/prisma-ast": "0.15.0",
-      "effect": "3.20.0"
+      "effect": "3.21.0"
+    },
+    "@prisma/config": {
+      "hono": "4.12.8",
+      "@hono/node-server": "1.19.11",
+      "@mrleebo/prisma-ast": "0.15.0",
+      "effect": "3.21.0"
+    },
+    "@prisma/dev": {
+      "hono": "4.12.8",
+      "@hono/node-server": "1.19.11",
+      "@mrleebo/prisma-ast": "0.15.0",
+      "effect": "3.21.0"
     }
   }
 }

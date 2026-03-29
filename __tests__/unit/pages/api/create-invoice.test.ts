@@ -20,7 +20,6 @@ describe("/api/create-invoice", () => {
 
     const createInvoiceSpy = jest
       .spyOn(invoiceService, "createInvoice")
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .mockReturnValue({ bitpay_id: "test" } as any);
 
     await handler(req);

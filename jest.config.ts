@@ -18,7 +18,7 @@ const config: Config = {
     "application.yaml": "<rootDir>/application.example.yaml",
   },
   transform: {
-    "\\.yaml$": "<rootDir>/jest-yaml-transformer.js",
+    "\\.yaml$": "jest-transform-yaml",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   verbose: true,

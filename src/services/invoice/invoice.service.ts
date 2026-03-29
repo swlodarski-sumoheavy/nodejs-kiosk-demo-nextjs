@@ -4,9 +4,7 @@ import config from "@/config";
 import { bitpayClient } from "@/lib/bitpay";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
-import { Invoice } from "bitpay-sdk/dist/Model";
-import { Buyer } from "bitpay-sdk/dist/Model/Invoice/Buyer";
-import { SupportedTransactionCurrency } from "bitpay-sdk/dist/Model/Invoice/SupportedTransactionCurrency";
+import { Buyer, Invoice, SupportedTransactionCurrency } from "bitpay-sdk/models";
 import { v4 as uuidv4 } from "uuid";
 
 export interface InvoiceCreateInput {

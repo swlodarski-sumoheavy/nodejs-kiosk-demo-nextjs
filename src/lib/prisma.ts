@@ -1,11 +1,15 @@
+import { PrismaLibSql } from '@prisma/adapter-libsql';
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
-  return new PrismaClient();
+  const adapter = new PrismaLibSql({
+    url: process.env.DATABASE_URL || 'file:./dev.db',
+  });
+  
+  return new PrismaClient({ adapter });
 };
 
 declare global {
-  // eslint-disable-next-line no-var
   var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>;
 }
 

@@ -3,7 +3,7 @@
 import config from "@/config";
 import { Invoice } from "@prisma/client";
 import Image from "next/image";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import Error from "./Error";
 
 export default function Donation() {
@@ -88,13 +88,6 @@ export default function Donation() {
     }
   };
 
-  useEffect(() => {
-    return setFormData((prevFormData) => ({
-      ...prevFormData,
-      price: selectedDenomination?.value,
-      currency: "USD",
-    }));
-  }, [selectedDenomination?.value]);
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -114,13 +107,18 @@ export default function Donation() {
                   ? selectedDenominationStyles
                   : {}
               }
-              onClick={() =>
+              onClick={() => {
                 setSelectedDenomination({
                   type: "button",
                   index: i,
                   value: denomination,
-                })
-              }
+                });
+                setFormData((prevFormData) => ({
+                  ...prevFormData,
+                  price: denomination,
+                  currency: "USD",
+                }));
+              }}
             >
               ${denomination}
             </button>
@@ -144,13 +142,18 @@ export default function Donation() {
                   value: e.target.value,
                 })
               }
-              onChange={(e) =>
+              onChange={(e) => {
                 setSelectedDenomination({
                   type: "input",
                   index: null,
                   value: e.target.value,
-                })
-              }
+                });
+                setFormData((prevFormData) => ({
+                  ...prevFormData,
+                  price: e.target.value,
+                  currency: "USD",
+                }));
+              }}
             />
           </div>
         )}

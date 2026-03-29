@@ -5,7 +5,7 @@ import { sseService } from "@/services/sse";
 import { webhookVerifier } from "@/services/webhooks";
 import logger from "@/utils/logger";
 import { Prisma } from "@prisma/client";
-import { Invoice } from "bitpay-sdk/dist/Model";
+import { Invoice } from "bitpay-sdk/models";
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 

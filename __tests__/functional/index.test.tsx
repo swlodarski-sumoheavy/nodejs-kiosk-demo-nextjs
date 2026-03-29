@@ -1,7 +1,7 @@
 import { invoiceService } from '@/services/invoice';
-import { describe, vi, it, expect, afterEach } from 'vitest';
-import { mockedInvoice } from '../../__mocks__/invoice';
 import prisma from '__mocks__/prisma';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { mockedInvoice } from '../../__mocks__/invoice';
 
 vi.mock('@/lib/prisma');
 vi.mock('@/services/invoice');

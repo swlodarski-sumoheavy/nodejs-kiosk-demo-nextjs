@@ -3,7 +3,7 @@
 import { supportedCurrencies } from "@/utils/currencies";
 const CSVLink = dynamic(() => import("react-csv").then((mod) => mod.CSVLink), { ssr: false });
 
-import { LedgerEntryInterface } from "bitpay-sdk/dist/Model";
+import { LedgerEntryInterface } from 'bitpay-sdk/models';
 import dynamic from "next/dynamic";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, useCallback } from "react";

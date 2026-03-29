@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider     = "sqlite"
+  relationMode = "prisma"
 }
 
 model InvoicePayment {
@@ -39,6 +39,8 @@ model InvoicePaymentCurrency {
   invoice_pyament_currency_miner_fee_id                      Int?                                                @unique
   supported_transaction_currency                             InvoicePaymentCurrencySupportedTransactionCurrency? @relation(fields: [invoice_payment_currency_supported_transaction_currency_id], references: [id])
   invoice_payment_currency_supported_transaction_currency_id Int?                                                @unique
+
+  @@index([invoice_payment_id])
 }
 
 model InvoicePaymentCurrencyCode {
@@ -47,6 +49,8 @@ model InvoicePaymentCurrencyCode {
   code_url                    String?
   InvoicePaymentCurrency      InvoicePaymentCurrency? @relation(fields: [invoice_payment_currency_id], references: [id])
   invoice_payment_currency_id Int?
+
+  @@index([invoice_payment_currency_id])
 }
 
 model InvoicePaymentCurrencyExchangeRate {
@@ -55,6 +59,8 @@ model InvoicePaymentCurrencyExchangeRate {
   rate                        Float?
   InvoicePaymentCurrency      InvoicePaymentCurrency? @relation(fields: [invoice_payment_currency_id], references: [id])
   invoice_payment_currency_id Int?
+
+  @@index([invoice_payment_currency_id])
 }
 
 model InvoicePyamentCurrencyMinerFee {

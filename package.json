@@ -13,19 +13,19 @@
     "test:functional": "vitest"
   },
   "dependencies": {
-    "@headlessui/react": "2.2.9",
+    "@headlessui/react": "2.2.10",
     "@heroicons/react": "2.2.0",
     "@libsql/client": "0.17.2",
-    "@prisma/adapter-libsql": "7.5.0",
-    "@prisma/client": "7.5.0",
+    "@prisma/adapter-libsql": "7.7.0",
+    "@prisma/client": "7.7.0",
     "@tailwindcss/forms": "0.5.11",
     "@tailwindcss/postcss": "4.2.2",
-    "bitpay-sdk": "8.0.1",
+    "bitpay-sdk": "8.0.3",
     "dayjs": "1.11.20",
-    "next": "16.2.1",
-    "react": "19.2.4",
+    "next": "16.2.3",
+    "react": "19.2.5",
     "react-csv": "2.2.2",
-    "react-dom": "19.2.4",
+    "react-dom": "19.2.5",
     "sharp": "0.34.5",
     "uuid": "10.0.0",
     "winston": "3.19.0"
@@ -38,51 +38,34 @@
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@types/jest": "30.0.0",
-    "@types/node": "25.5.0",
+    "@types/node": "25.6.0",
     "@types/react": "19.2.14",
     "@types/react-csv": "1.1.10",
     "@types/react-dom": "19.2.3",
-    "@types/uuid": "10.0.0",
-    "@vitejs/plugin-react": "5.2.0",
-    "autoprefixer": "10.4.27",
-    "eslint": "9.35.0",
-    "eslint-config-next": "16.2.1",
+    "@vitejs/plugin-react": "6.0.1",
+    "autoprefixer": "10.5.0",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.3",
     "eventsourcemock": "2.0.0",
     "jest": "30.3.0",
     "jest-environment-jsdom": "30.3.0",
     "jest-transform-yaml": "1.2.0",
-    "jsdom": "29.0.1",
+    "jsdom": "29.0.2",
     "node-mocks-http": "1.17.2",
-    "postcss": "8.5.8",
-    "prisma": "7.5.0",
+    "postcss": "8.5.9",
+    "prisma": "7.7.0",
     "tailwindcss": "4.2.2",
     "ts-node": "10.9.2",
-    "typescript": "5.9.2",
-    "vitest": "4.1.1",
-    "vitest-mock-extended": "3.1.0",
+    "typescript": "6.0.2",
+    "vitest": "4.1.4",
+    "vitest-mock-extended": "4.0.0",
     "whatwg-fetch": "3.6.20",
     "yaml-loader": "0.9.0"
   },
   "overrides": {
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "prisma@7.5.0": {
-      "hono": "4.12.8",
-      "@hono/node-server": "1.19.11",
-      "@mrleebo/prisma-ast": "0.15.0",
-      "effect": "3.21.0"
+    "bitpay-sdk": {
+      "lodash": "4.18.1"
     },
-    "@prisma/config": {
-      "hono": "4.12.8",
-      "@hono/node-server": "1.19.11",
-      "@mrleebo/prisma-ast": "0.15.0",
-      "effect": "3.21.0"
-    },
-    "@prisma/dev": {
-      "hono": "4.12.8",
-      "@hono/node-server": "1.19.11",
-      "@mrleebo/prisma-ast": "0.15.0",
-      "effect": "3.21.0"
-    }
+    "@hono/node-server": "1.19.14"
   }
 }
